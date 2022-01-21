@@ -1,0 +1,28 @@
+:root {
+  --primery: rgb(107, 94, 90);
+  --secondary: rgb(234, 84, 51);
+  --tertiary: rgb(254, 249, 247);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+html {
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+}
+body {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.5;
+  background-color: antiquewhite;
+}
+.container {
+  max-width: 1370px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 32px;
+}
