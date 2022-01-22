@@ -1,10 +1,23 @@
 var express = require(`express`);
+
+//require
+var logger = require(`morgan`);
+var cookieParser = require(`cookie-parser`);
 var app = express();
 
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.use(logger(`dev`));
+app.use(cookieParser());
+
+app.use((req, res, next) => {
+  res.cookie("username", "xyz");
+  next();
+});
+
+//routes
 app.get(`/`, (req, res) => {
   res.send(`Welcome to Express`);
 });
@@ -14,12 +27,26 @@ app.get(`/about`, (req, res) => {
 });
 
 app.post(`/form`, (req, res) => {
-  console.log(req.body);
-  res.send(req.body);
+  res.json(req.body);
 });
 
 app.post(`/json`, (req, res) => {
   console.log(req.body);
+});
+
+app.get(`/users/:username`, (req, res) => {
+  var username = req.params.username;
+  res.send(`<h2>${username} </h2>`);
+});
+
+//404 middleware
+app.use((req, res, next) => {
+  res.send(`Page Not Found`);
+});
+
+//custom middleware
+app.use((err, req, res, next) => {
+  res.send(err);
 });
 
 app.listen(3000, () => {
