@@ -3,6 +3,8 @@ var express = require(`express`);
 //require
 var logger = require(`morgan`);
 var cookieParser = require(`cookie-parser`);
+
+//instantiate the app
 var app = express();
 
 //middlewares
@@ -23,8 +25,12 @@ app.get(`/`, (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get(`/about`, (req, res) => {
-  res.send(`My name is John`);
+app.get(`/project`, (req, res) => {
+  res.sendFile(__dirname + "/project.html");
+});
+
+app.use(`/users`, (req, res) => {
+  res.send(`User Page`);
 });
 
 app.post(`/form`, (req, res) => {
