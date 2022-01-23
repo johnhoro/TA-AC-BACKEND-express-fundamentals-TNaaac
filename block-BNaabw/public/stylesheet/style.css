@@ -133,6 +133,10 @@ table {
 body {
   background-color: rgb(236, 204, 162);
 }
+
+.body {
+  background-color: chartreuse;
+}
 .container {
   max-width: 1100px;
   width: 100%;
@@ -142,6 +146,9 @@ body {
 header {
   background-color: black;
   padding: 2rem;
+}
+.header {
+  background-color: rgb(73, 71, 67);
 }
 main {
   margin-top: 3rem;
